@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="maison">
+  <title>Shrini Media — Where Creativity Meets Influence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+
+      /* 1. Maison base tokens adapted for dark luxury gradients & polished metallic gold */
+      --background: #0d0b09;
+      --background-deep: #070605;
+      --surface-container-low: #15120f;
+      --surface-container: #1d1813;
+      --surface-container-high: #272019;
+
+      /* Type */
+      --on-surface: #f4efe6;
+      --on-surface-variant: #bdb1a0;
+
+      /* Rules & metallic gold tones */
+      --outline: #8d7341;
+      --outline-variant: #4a3d24;
+      --gold-dark: #937234;
+      --gold-primary: #c9a45a;
+      --gold-light: #ebd39b;
+      --gold-sheen: linear-gradient(135deg, #937234 0%, #ebd39b 42%, #c9a45a 68%, #8d6c30 100%);
+      --gold-rule-grad: linear-gradient(90deg, transparent 0%, #937234 20%, #ebd39b 50%, #937234 80%, transparent 100%);
+
+      /* Dark background gradients */
+      --bg-gradient-page: radial-gradient(ellipse 90% 55% at 50% 0%, #241c13 0%, #120f0c 46%, #090807 100%);
+      --bg-gradient-panel: linear-gradient(160deg, #1b1611 0%, #120f0c 55%, #0c0a08 100%);
+      --bg-gradient-hero: radial-gradient(circle at 50% 35%, #2a2015 0%, #14100c 52%, #0b0907 100%);
+      --bg-gradient-gold-tint: linear-gradient(145deg, rgba(201, 164, 90, 0.12) 0%, rgba(21, 18, 15, 0.85) 60%, rgba(13, 11, 9, 0.95) 100%);
+
+      /* Accents */
+      --primary: #f4efe6;
+      --on-primary: #0d0b09;
+      --primary-container: #2b2318;
+      --on-primary-container: #f4efe6;
+      --secondary: #a89983;
+      --tertiary: #dec080;
+      --error: #e58e82;
+      --on-error: #0d0b09;
+
+      /* Semantic */
+      --positive: #9ec09e;
+      --warning: #dec080;
+      --focus: #dec080;
+
+      /* Data series */
+      --data-1: #dec080;
+      --data-2: #f4efe6;
+      --data-3: #b98b79;
+      --data-4: #879da6;
+      --data-context: #6e6256;
+
+      /* Fonts */
+      --font-headline: 'Italiana', serif;
+      --font-body: 'Jost', sans-serif;
+      --font-label: 'Jost', sans-serif;
+
+      /* Shape */
+      --rounded: 0;
+      --rounded-lg: 0;
+      --rounded-full: 0;
+
+      /* Style effects */
+      --hairline: 1px solid var(--outline);
+      --hairline-soft: 1px solid var(--outline-variant);
+      --gold-glow: 0 0 36px rgba(201, 164, 90, 0.08);
+      --panel-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      --tracking-mast: 0.52em;
+      --tracking-label: 0.24em;
+      --tracking-button: 0.2em;
+
+      /* Type scale - Narrative */
+      --display-size: clamp(2.85rem, 1.5rem + 4.5vw, 5.25rem);
+      --headline-size: clamp(1.95rem, 1.25rem + 2.2vw, 2.85rem);
+      --subhead-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.55rem);
+      --body-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 140ms;
+      --dur-short: 240ms;
+      --dur-long: 500ms;
+    }
+
+    /* Base reset -- required on every artifact */
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      background-color: var(--background);
+    }
+    body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      background-image: var(--bg-gradient-page);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* SVG Metallic Gold Utility Classes */
+    .stop-gold-dark { stop-color: var(--gold-dark); }
+    .stop-gold-mid { stop-color: var(--gold-primary); }
+    .stop-gold-light { stop-color: var(--gold-light); }
+    .stop-obsidian { stop-color: var(--background); }
+
+    /* Typography Helpers */
+    .label {
+      font-family: var(--font-label);
+      font-weight: 400;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      color: var(--secondary);
+      margin: 0;
+    }
+
+    .kicker {
+      font-family: var(--font-label);
+      font-weight: 400;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-mast);
+      color: var(--tertiary);
+      text-align: center;
+      margin: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      line-height: 1.06;
+      letter-spacing: 0.01em;
+      color: var(--on-surface);
+      text-align: center;
+      margin: 0;
+    }
+
+    .section-subline {
+      margin: var(--space-sm) auto 0;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      color: var(--tertiary);
+      text-align: center;
+    }
+
+    .section-lede {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1rem + 0.35vw, 1.25rem);
+      color: var(--on-surface-variant);
+      max-width: 54ch;
+      margin: var(--space-md) auto 0;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .gold-rule {
+      width: 100%;
+      height: 1px;
+      border: 0;
+      margin: 0;
+      background: var(--gold-rule-grad);
+    }
+
+    .gold-text-gradient {
+      background: var(--gold-sheen);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: var(--tertiary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-xl);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-button);
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: var(--rounded);
+      transition: background-color var(--dur-short) var(--ease-out),
+                  color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out),
+                  transform var(--dur-micro) var(--ease-out);
+    }
+    .btn:active {
+      transform: translateY(1px);
+    }
+    .btn-primary {
+      background: var(--gold-sheen);
+      color: var(--on-primary);
+      border: 1px solid var(--gold-light);
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--tertiary);
+      border: var(--hairline);
+    }
+    .btn-secondary:hover {
+      background: var(--primary-container);
+      color: var(--on-surface);
+      border-color: var(--tertiary);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--secondary);
+      border: var(--hairline-soft);
+      padding: var(--space-sm) var(--space-md);
+    }
+    .btn-ghost:hover {
+      color: var(--on-surface);
+      border-color: var(--outline);
+    }
+    .btn[aria-pressed="true"],
+    .btn.is-active {
+      background: var(--primary-container);
+      color: var(--tertiary);
+      border-color: var(--tertiary);
+    }
+
+    /* Masthead & Navigation */
+    .masthead {
+      border-bottom: var(--hairline-soft);
+      background: var(--bg-gradient-panel);
+    }
+    .masthead-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg) var(--space-lg) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      text-decoration: none;
+      color: var(--on-surface);
+    }
+    .brand-wordmark {
+      font-family: var(--font-headline);
+      font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.9rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--on-surface);
+      line-height: 1;
+    }
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm) var(--space-xl);
+      padding-top: var(--space-xs);
+    }
+    .nav-link {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      color: var(--secondary);
+      text-decoration: none;
+      padding: var(--space-xs) 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 1px solid transparent;
+      transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+    }
+    .nav-link:hover {
+      color: var(--tertiary);
+      border-bottom-color: var(--outline);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--bg-gradient-hero);
+      border-bottom: var(--hairline-soft);
+      padding: var(--space-3xl) var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-lg);
+    }
+    .hero-crest-wrap {
+      padding: var(--space-md);
+      border: var(--hairline-soft);
+      background: var(--surface-container-low);
+      box-shadow: var(--gold-glow);
+    }
+    .hero-title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.03;
+      letter-spacing: 0.015em;
+      color: var(--on-surface);
+      margin: 0;
+      max-width: 18ch;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--tertiary);
+      font-weight: 400;
+    }
+    .hero-subline {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-mast);
+      color: var(--tertiary);
+      margin: 0;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+    .hero-metrics {
+      width: 100%;
+      margin-top: var(--space-xl);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+    .figure {
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+      text-align: center;
+      background: transparent;
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.35rem);
+      color: var(--on-surface);
+      line-height: 1.1;
+      margin: var(--space-xs) 0;
+    }
+    .figure-caption {
+      font-weight: 300;
+      font-size: 0.92rem;
+      color: var(--tertiary);
+      margin: 0;
+    }
+
+    /* Section Containers */
+    .section-band {
+      padding: var(--space-3xl) 0;
+      border-bottom: var(--hairline-soft);
+    }
+    .section-header {
+      margin-bottom: var(--space-2xl);
+    }
+
+    /* Pillars Interactive Grid */
+    .pillars-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .pillar-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .pillar-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--surface-container-low);
+      border: var(--hairline-soft);
+      padding: var(--space-lg);
+      color: var(--on-surface);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      min-height: 44px;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out);
+    }
+    .pillar-btn:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .pillar-btn[aria-selected="true"] {
+      background: var(--bg-gradient-gold-tint);
+      border-color: var(--gold-primary);
+    }
+    .pillar-btn-index {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: var(--tracking-label);
+      color: var(--tertiary);
+    }
+    .pillar-btn-title {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      color: var(--on-surface);
+      display: block;
+      margin-top: var(--space-xs);
+    }
+    .pillar-detail-card {
+      background: var(--bg-gradient-panel);
+      border: var(--hairline);
+      padding: var(--space-xl);
+      box-shadow: var(--panel-shadow);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+    .pillar-detail-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      color: var(--on-surface);
+      margin: var(--space-xs) 0 var(--space-md);
+      line-height: 1.08;
+    }
+    .pillar-prose {
+      color: var(--on-surface-variant);
+      max-width: 58ch;
+      margin: 0;
+    }
+    .pillar-specs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-lg);
+    }
+    .spec-item p {
+      margin: var(--space-xs) 0 0;
+      font-size: 0.95rem;
+      color: var(--on-surface);
+    }
+
+    /* Core Services Architecture */
+    .services-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+    .service-stage {
+      background: var(--bg-gradient-panel);
+      border: var(--hairline);
+      padding: var(--space-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: var(--space-xl);
+      align-items: start;
+      box-shadow: var(--panel-shadow);
+    }
+    .service-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      color: var(--on-surface);
+      margin: var(--space-xs) 0 var(--space-md);
+      line-height: 1.08;
+    }
+    .service-desc {
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+      margin: 0 0 var(--space-lg);
+    }
+    .deliverable-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .deliverable-list li {
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-sm);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-md);
+      color: var(--on-surface);
+      font-size: 0.98rem;
+    }
+    .deliverable-list li span:last-child {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: var(--tracking-label);
+      color: var(--tertiary);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .service-workflow {
+      background: var(--surface-container-low);
+      border: var(--hairline-soft);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .workflow-step {
+      border-left: 2px solid var(--gold-primary);
+      padding-left: var(--space-md);
+    }
+    .workflow-step strong {
+      display: block;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--tertiary);
+      font-weight: 500;
+    }
+    .workflow-step p {
+      margin: var(--space-xs) 0 0;
+      font-size: 0.95rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Visual Identity & Brand Board */
+    .identity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-xl);
+    }
+    .board-panel {
+      background: var(--bg-gradient-panel);
+      border: var(--hairline-soft);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .logo-stage {
+      min-height: 220px;
+      border: var(--hairline);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl);
+      gap: var(--space-md);
+      background: var(--bg-gradient-hero);
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+    .logo-stage.is-gold-surface {
+      background: var(--gold-sheen);
+    }
+    .logo-stage.is-gold-surface .logo-caption-note {
+      color: var(--on-primary);
+    }
+    .logo-caption-note {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--secondary);
+      text-align: center;
+    }
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .swatch-btn {
+      background: var(--surface-container-low);
+      border: var(--hairline-soft);
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      color: var(--on-surface);
+      transition: border-color var(--dur-short) var(--ease-out);
+    }
+    .swatch-btn:hover {
+      border-color: var(--gold-primary);
+    }
+    .swatch-chip {
+      height: 58px;
+      width: 100%;
+      border-bottom: var(--hairline-soft);
+    }
+    .swatch-chip.s-obsidian { background-color: var(--background); }
+    .swatch-chip.s-velvet { background-color: var(--surface-container); }
+    .swatch-chip.s-gold { background: var(--gold-sheen); }
+    .swatch-chip.s-champagne { background-color: var(--tertiary); }
+    .swatch-chip.s-ivory { background-color: var(--on-surface); }
+    .swatch-chip.s-taupe { background-color: var(--secondary); }
+
+    .swatch-meta {
+      padding: var(--space-sm);
+    }
+    .swatch-name {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--on-surface);
+    }
+    .swatch-hex {
+      display: block;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: 0.08em;
+      color: var(--tertiary);
+    }
+    .copy-feedback {
+      min-height: 24px;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--positive);
+    }
+
+    .type-specimen-box {
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-md);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .specimen-display {
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+      line-height: 1.05;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .specimen-sans {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-mast);
+      color: var(--tertiary);
+      margin: 0;
+    }
+
+    /* Featured Creative Work Showcase */
+    .work-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+    .work-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .card-wrapper { container-type: inline-size; }
+    .work-card {
+      width: 100%;
+      text-align: left;
+      background: var(--surface-container-low);
+      border: var(--hairline-soft);
+      padding: var(--space-lg);
+      color: var(--on-surface);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+      min-height: 190px;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out),
+                  transform var(--dur-micro) var(--ease-out);
+    }
+    .work-card:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .work-card[aria-selected="true"] {
+      background: var(--bg-gradient-gold-tint);
+      border-color: var(--gold-primary);
+    }
+    .work-card-title {
+      font-family: var(--font-headline);
+      font-size: 1.45rem;
+      line-height: 1.15;
+      color: var(--on-surface);
+      margin: var(--space-xs) 0 0;
+    }
+    .work-card-meta {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+
+    .dossier-panel {
+      background: var(--bg-gradient-panel);
+      border: var(--hairline);
+      padding: var(--space-xl);
+      box-shadow: var(--panel-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .dossier-visual {
+      border: var(--hairline-soft);
+      background: var(--bg-gradient-hero);
+      padding: var(--space-lg);
+      min-height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dossier-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-md);
+    }
+    .dossier-metric-val {
+      font-family: var(--font-headline);
+      font-size: 1.85rem;
+      color: var(--tertiary);
+      line-height: 1.1;
+      margin: var(--space-xs) 0 0;
+    }
+
+    /* Contact / Client Inquiry Section */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .inquiry-form {
+      background: var(--bg-gradient-panel);
+      border: var(--hairline);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-lg);
+      box-shadow: var(--panel-shadow);
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      color: var(--tertiary);
+    }
+    .field-input,
+    .field-select,
+    .field-textarea {
+      width: 100%;
+      background: var(--surface-container-low);
+      border: var(--hairline-soft);
+      border-bottom: var(--hairline);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: 0.75rem var(--space-md);
+      border-radius: var(--rounded);
+      min-height: 44px;
+      transition: border-color var(--dur-short) var(--ease-out),
+                  background-color var(--dur-short) var(--ease-out);
+    }
+    .field-select {
+      padding-right: 2.25rem;
+    }
+    .field-textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+    .field-input:focus,
+    .field-select:focus,
+    .field-textarea:focus {
+      background: var(--surface-container);
+      border-color: var(--gold-light);
+    }
+    .form-status {
+      padding: var(--space-md);
+      border: var(--hairline-soft);
+      background: var(--surface-container-low);
+      display: none;
+    }
+    .form-status.is-visible {
+      display: block;
+    }
+    .form-status.is-error {
+      border-color: var(--error);
+      color: var(--error);
+    }
+    .form-status.is-success {
+      border-color: var(--gold-primary);
+      color: var(--on-surface);
+    }
+
+    .blueprint-aside {
+      background: var(--surface-container-low);
+      border: var(--hairline-soft);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .blueprint-line {
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-md);
+    }
+    .blueprint-line p {
+      margin: var(--space-xs) 0 0;
+      color: var(--on-surface-variant);
+      font-size: 0.96rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: var(--space-2xl) var(--space-lg);
+      text-align: center;
+      background: var(--background-deep);
+      border-top: var(--hairline-soft);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out);
+    }
+    .reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @container (max-width: 399px) {
+      .work-card-title { font-size: 1.3rem; }
+    }
+
+    @media (max-width: 900px) {
+      .pillars-layout,
+      .service-stage,
+      .identity-grid,
+      .work-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+      }
+      .swatch-grid,
+      .pillar-specs,
+      .dossier-metrics,
+      .form-row-2 {
+        grid-template-columns: 1fr;
+      }
+      .hero-section {
+        padding: var(--space-2xl) var(--space-md);
+      }
+      .section-band {
+        padding: var(--space-2xl) 0;
+      }
+      .nav-row {
+        gap: var(--space-xs) var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a href="#positioning" class="brand-lockup">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="nav-gold-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" class="stop-gold-dark" />
+              <stop offset="45%" class="stop-gold-light" />
+              <stop offset="100%" class="stop-gold-dark" />
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="58" height="58" stroke="url(#nav-gold-grad)" stroke-width="1.5" />
+          <path d="M22 22C22 17 28 15 32 18C36 21 20 29 22 38C24 46 33 48 39 43" stroke="url(#nav-gold-grad)" stroke-width="2" />
+          <path d="M20 46V20L32 34L44 20V46" stroke="url(#nav-gold-grad)" stroke-width="1.5" />
+        </svg>
+        <span class="brand-wordmark">Shrini Media</span>
+      </a>
+      <nav class="nav-row" aria-label="Primary navigation">
+        <a href="#positioning" class="nav-link">Positioning</a>
+        <a href="#pillars" class="nav-link">Brand Pillars</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#identity" class="nav-link">Identity</a>
+        <a href="#work" class="nav-link">Creative Work</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Agency Positioning -->
+    <section id="positioning" class="hero-section">
+      <div class="hero-inner">
+        <p class="kicker">Luxury Creative &amp; Talent Agency</p>
+        <div class="hero-crest-wrap" aria-hidden="true">
+          <svg width="84" height="84" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hero-gold-grad" x1="8" y1="8" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" class="stop-gold-dark" />
+                <stop offset="38%" class="stop-gold-light" />
+                <stop offset="70%" class="stop-gold-mid" />
+                <stop offset="100%" class="stop-gold-dark" />
+              </linearGradient>
+            </defs>
+            <rect x="6" y="6" width="84" height="84" stroke="url(#hero-gold-grad)" stroke-width="1.2" />
+            <rect x="13" y="13" width="70" height="70" stroke="url(#hero-gold-grad)" stroke-width="0.75" opacity="0.65" />
+            <path d="M35 30C35 24 44 22 49 26C54 30 31 41 34 54C37 64 51 67 60 59" stroke="url(#hero-gold-grad)" stroke-width="2.2" />
+            <path d="M29 67V29L48 50L67 29V67" stroke="url(#hero-gold-grad)" stroke-width="1.6" />
+          </svg>
+        </div>
+        <h1 class="hero-title">Where <em>Creativity</em> Meets Influence</h1>
+        <p class="hero-subline">Content &middot; Creators &middot; Connections</p>
+        <p class="section-lede">
+          Shrini Media is a luxury creative and cultural influence house. We craft elevated visual worlds, curate discerning creator partnerships, and forge enduring connections for modern prestige brands.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">Explore Featured Work</a>
+          <a href="#contact" class="btn btn-secondary">Commission a Campaign</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="figure">
+            <p class="label">Brand Ethos</p>
+            <p class="figure-value">04 Pillars</p>
+            <p class="figure-caption">Premium, Modern, Professional, Approachable</p>
+          </div>
+          <div class="figure">
+            <p class="label">Agency Disciplines</p>
+            <p class="figure-value">03 Cores</p>
+            <p class="figure-caption">Content, Creators &amp; Connections</p>
+          </div>
+          <div class="figure">
+            <p class="label">Creative Standard</p>
+            <p class="figure-value">Bespoke</p>
+            <p class="figure-caption">Editorial Art Direction &amp; Cultural Reach</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-grid">
+      <!-- Brand Pillars -->
+      <section id="pillars" class="section-band reveal">
+        <div class="section-header">
+          <p class="kicker">01 &mdash; Brand Foundation</p>
+          <h2 class="section-title">Four Pillars of the House</h2>
+          <p class="section-subline">Premium &middot; Modern &middot; Professional &middot; Approachable</p>
+          <p class="section-lede">
+            Every campaign at Shrini Media balances high-craft luxury restraint with human warmth. Select a pillar to examine how it governs our creative and client practice.
+          </p>
+        </div>
+
+        <div class="pillars-layout">
+          <div class="pillar-list" role="tablist" aria-label="Brand Pillars">
+            <button type="button" class="pillar-btn" role="tab" aria-selected="true" id="pillar-tab-premium" onclick="selectPillar('premium')">
+              <div>
+                <span class="pillar-btn-index">Pillar 01</span>
+                <span class="pillar-btn-title">Premium</span>
+              </div>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="pillar-btn" role="tab" aria-selected="false" id="pillar-tab-modern" onclick="selectPillar('modern')">
+              <div>
+                <span class="pillar-btn-index">Pillar 02</span>
+                <span class="pillar-btn-title">Modern</span>
+              </div>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="pillar-btn" role="tab" aria-selected="false" id="pillar-tab-professional" onclick="selectPillar('professional')">
+              <div>
+                <span class="pillar-btn-index">Pillar 03</span>
+                <span class="pillar-btn-title">Professional</span>
+              </div>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="pillar-btn" role="tab" aria-selected="false" id="pillar-tab-approachable" onclick="selectPillar('approachable')">
+              <div>
+                <span class="pillar-btn-index">Pillar 04</span>
+                <span class="pillar-btn-title">Approachable</span>
+              </div>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <article class="pillar-detail-card" id="pillar-detail-panel" aria-live="polite">
+            <div>
+              <p class="label" id="pillar-detail-kicker">Pillar 01 &mdash; Aesthetic &amp; Craft Standard</p>
+              <h3 class="pillar-detail-title" id="pillar-detail-title">Premium</h3>
+              <p class="pillar-prose" id="pillar-detail-desc">
+                Luxury resides in restraint, tactile detail, and visual authority. We reject noisy promotional clutter in favor of editorial compositions, nocturnal depth, and polished metallic accents that elevate brand equity from the first glance.
+              </p>
+            </div>
+            <div class="pillar-specs">
+              <div class="spec-item">
+                <p class="label">In Practice</p>
+                <p id="pillar-detail-practice">Bespoke art direction, cinema-grade pacing, and museum-level brand stewardship.</p>
+              </div>
+              <div class="spec-item">
+                <p class="label">Visual Cue</p>
+                <p id="pillar-detail-cue">High-contrast serif display over obsidian gradients and champagne hairlines.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Core Services -->
+      <section id="services" class="section-band reveal">
+        <div class="section-header">
+          <p class="kicker">02 &mdash; Core Services</p>
+          <h2 class="section-title">Content, Creators &amp; Connections</h2>
+          <p class="section-subline">Integrated Agency Architecture</p>
+          <p class="section-lede">
+            Our three disciplines operate as one cohesive engine—translating brand heritage into high-impact visual storytelling, trusted creator advocacy, and cultural presence.
+          </p>
+        </div>
+
+        <div class="services-tabs" role="tablist" aria-label="Core Services">
+          <button type="button" class="btn btn-secondary is-active" role="tab" aria-selected="true" id="svc-tab-content" onclick="selectService('content')">
+            01. Content
+          </button>
+          <button type="button" class="btn btn-secondary" role="tab" aria-selected="false" id="svc-tab-creators" onclick="selectService('creators')">
+            02. Creators
+          </button>
+          <button type="button" class="btn btn-secondary" role="tab" aria-selected="false" id="svc-tab-connections" onclick="selectService('connections')">
+            03. Connections
+          </button>
+        </div>
+
+        <div class="service-stage" id="service-stage" aria-live="polite">
+          <div>
+            <p class="label" id="svc-kicker">Discipline 01 &mdash; Editorial Production</p>
+            <h3 class="service-title" id="svc-title">Content</h3>
+            <p class="service-desc" id="svc-desc">
+              End-to-end creative direction and luxury content production built for modern digital flagships. From architectural product stills to nocturnal motion campaigns, every frame is calibrated to look unmistakable without explanation.
+            </p>
+            <ul class="deliverable-list" id="svc-deliverables">
+              <li><span>Campaign Art Direction &amp; Mood Architecture</span><span>Direction</span></li>
+              <li><span>Editorial Motion Reels &amp; Launch Films</span><span>Production</span></li>
+              <li><span>Luxury Still Life &amp; Lookbook Photography</span><span>Imagery</span></li>
+              <li><span>Social Flagship Visual Systems</span><span>Digital</span></li>
+            </ul>
+          </div>
+
+          <aside class="service-workflow">
+            <p class="label">Execution Cadence</p>
+            <div id="svc-workflow-steps" class="pillar-list">
+              <div class="workflow-step">
+                <strong>01 &mdash; Narrative Framing</strong>
+                <p>Translate commercial objectives into a singular visual thesis and shot hierarchy.</p>
+              </div>
+              <div class="workflow-step">
+                <strong>02 &mdash; Studio Craft</strong>
+                <p>Lighting, styling, and tactile set design executed with couture-level precision.</p>
+              </div>
+              <div class="workflow-step">
+                <strong>03 &mdash; Multi-Format Cutdown</strong>
+                <p>Master deliverables tailored across editorial print, cinema screens, and social channels.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Logo & Visual Identity Board -->
+      <section id="identity" class="section-band reveal">
+        <div class="section-header">
+          <p class="kicker">03 &mdash; Visual Identity System</p>
+          <h2 class="section-title">Logo, Palette &amp; Type Specimen</h2>
+          <p class="section-subline">Interactive Brand Board Explorer</p>
+          <p class="section-lede">
+            Inspect the visual DNA of Shrini Media: bespoke geometric-serif monograms, our obsidian-and-gold palette, and the editorial typographic pairing.
+          </p>
+        </div>
+
+        <div class="identity-grid">
+          <!-- Logo Lockup Explorer -->
+          <div class="board-panel">
+            <div>
+              <p class="label">Brand Marks &amp; Surface Contrast</p>
+              <div class="controls-row" style="margin-top: var(--space-sm);">
+                <button type="button" class="btn btn-ghost is-active" id="logo-mode-monogram" onclick="setLogoVariant('monogram')">Monogram</button>
+                <button type="button" class="btn btn-ghost" id="logo-mode-seal" onclick="setLogoVariant('seal')">Crest Seal</button>
+                <button type="button" class="btn btn-ghost" id="logo-mode-wordmark" onclick="setLogoVariant('wordmark')">Wordmark</button>
+                <button type="button" class="btn btn-ghost" id="logo-surface-toggle" onclick="toggleLogoSurface()">Switch Ground</button>
+              </div>
+            </div>
+
+            <div class="logo-stage" id="logo-stage">
+              <div id="logo-svg-container">
+                <svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shrini Media Primary Monogram">
+                  <defs>
+                    <linearGradient id="stage-gold-grad" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" class="stop-gold-dark" />
+                      <stop offset="40%" class="stop-gold-light" />
+                      <stop offset="72%" class="stop-gold-mid" />
+                      <stop offset="100%" class="stop-gold-dark" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="8" y="8" width="104" height="104" stroke="url(#stage-gold-grad)" stroke-width="1.5" />
+                  <rect x="16" y="16" width="88" height="88" stroke="url(#stage-gold-grad)" stroke-width="0.75" opacity="0.6" />
+                  <path d="M44 38C44 30 55 27 61 32C67 37 40 50 43 66C46 79 63 82 75 72" stroke="url(#stage-gold-grad)" stroke-width="2.6" />
+                  <path d="M36 82V36L60 62L84 36V82" stroke="url(#stage-gold-grad)" stroke-width="1.8" />
+                </svg>
+              </div>
+              <p class="logo-caption-note" id="logo-caption-note">Primary Monogram &mdash; Metallic Gold on Obsidian</p>
+            </div>
+
+            <div class="type-specimen-box">
+              <p class="label">Typography Pairing &mdash; Italiana + Jost</p>
+              <p class="specimen-display">Where Creativity Meets Influence</p>
+              <p class="specimen-sans">Italiana Display &middot; Jost Tracked Capitals</p>
+            </div>
+          </div>
+
+          <!-- Palette & Token Explorer -->
+          <div class="board-panel">
+            <div>
+              <p class="label">Color Architecture (Click Swatch to Copy Hex)</p>
+              <p class="copy-feedback" id="swatch-copy-feedback" aria-live="polite">Select any swatch to inspect its role &amp; copy value.</p>
+            </div>
+
+            <div class="swatch-grid">
+              <button type="button" class="swatch-btn" onclick="copySwatch('Obsidian Noir', '#0D0B09', 'Primary nocturnal canvas')">
+                <div class="swatch-chip s-obsidian"></div>
+                <div class="swatch-meta">
+                  <span class="swatch-name">Obsidian Noir</span>
+                  <span class="swatch-hex">#0D0B09</span>
+                </div>
+              </button>
+              <button type="button" class="swatch-btn" onclick="copySwatch('Espresso Velvet', '#1D1813', 'Elevated panel gradient')">
+                <div class="swatch-chip s-velvet"></div>
+                <div class="swatch-meta">
+                  <span class="swatch-name">Espresso Velvet</span>
+                  <span class="swatch-hex">#1D1813</span>
+                </div>
+              </button>
+              <button type="button" class="swatch-btn" onclick="copySwatch('Burnished Gold', '#C9A45A', 'Polished metallic accent')">
+                <div class="swatch-chip s-gold"></div>
+                <div class="swatch-meta">
+                  <span class="swatch-name">Burnished Gold</span>
+                  <span class="swatch-hex">#C9A45A</span>
+                </div>
+              </button>
+              <button type="button" class="swatch-btn" onclick="copySwatch('Champagne Silk', '#DEC080', 'Kickers, borders & highlights')">
+                <div class="swatch-chip s-champagne"></div>
+                <div class="swatch-meta">
+                  <span class="swatch-name">Champagne Silk</span>
+                  <span class="swatch-hex">#DEC080</span>
+                </div>
+              </button>
+              <button type="button" class="swatch-btn" onclick="copySwatch('Warm Ivory', '#F4EFE6', 'Display & editorial body ink')">
+                <div class="swatch-chip s-ivory"></div>
+                <div class="swatch-meta">
+                  <span class="swatch-name">Warm Ivory</span>
+                  <span class="swatch-hex">#F4EFE6</span>
+                </div>
+              </button>
+              <button type="button" class="swatch-btn" onclick="copySwatch('Taupe Stone', '#A89983', 'Tracked uppercase labels')">
+                <div class="swatch-chip s-taupe"></div>
+                <div class="swatch-meta">
+                  <span class="swatch-name">Taupe Stone</span>
+                  <span class="swatch-hex">#A89983</span>
+                </div>
+              </button>
+            </div>
+
+            <div class="type-specimen-box">
+              <p class="label">Visual Proportions &amp; Guardrails</p>
+              <p class="pillar-prose">
+                Roughly 85% nocturnal obsidian and espresso depth anchors the experience. Warm ivory carries headlines and prose with effortless clarity, while polished metallic gold is reserved strictly for framing, monograms, and decisive focal accents.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Creative Work Showcase -->
+      <section id="work" class="section-band reveal">
+        <div class="section-header">
+          <p class="kicker">04 &mdash; Portfolio Archive</p>
+          <h2 class="section-title">Featured Creative Work</h2>
+          <p class="section-subline">Selected Agency Case Studies</p>
+          <p class="section-lede">
+            Filter by core discipline and select any commission to examine the creative direction, deliverables, and campaign outcomes.
+          </p>
+        </div>
+
+        <div class="work-controls" role="group" aria-label="Filter creative work by service">
+          <button type="button" class="btn btn-ghost is-active" id="filter-all" onclick="filterWork('all')">All Works (06)</button>
+          <button type="button" class="btn btn-ghost" id="filter-content" onclick="filterWork('Content')">Content</button>
+          <button type="button" class="btn btn-ghost" id="filter-creators" onclick="filterWork('Creators')">Creators</button>
+          <button type="button" class="btn btn-ghost" id="filter-connections" onclick="filterWork('Connections')">Connections</button>
+        </div>
+
+        <div class="work-layout">
+          <div class="work-grid" id="work-grid"></div>
+
+          <aside class="dossier-panel" id="dossier-panel" aria-live="polite">
+            <div class="dossier-visual" id="dossier-visual"></div>
+            <div>
+              <p class="label" id="dossier-category">Content &middot; Couture Editorial</p>
+              <h3 class="service-title" id="dossier-title">Maison Aurelia</h3>
+              <p class="pillar-prose" id="dossier-summary"></p>
+            </div>
+            <ul class="deliverable-list" id="dossier-deliverables"></ul>
+            <div class="dossier-metrics">
+              <div>
+                <p class="label" id="dossier-m1-label">Campaign Reach</p>
+                <p class="dossier-metric-val" id="dossier-m1-val"></p>
+              </div>
+              <div>
+                <p class="label" id="dossier-m2-label">Engagement Lift</p>
+                <p class="dossier-metric-val" id="dossier-m2-val"></p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Client Contact Section -->
+      <section id="contact" class="section-band reveal" style="border-bottom: 0;">
+        <div class="section-header">
+          <p class="kicker">05 &mdash; Private Inquiries</p>
+          <h2 class="section-title">Begin a Conversation</h2>
+          <p class="section-subline">Client Commissions &amp; Partnerships</p>
+          <p class="section-lede">
+            Share your upcoming launch, creator initiative, or brand partnership brief. Configure your scope below to preview a tailored agency blueprint.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <form class="inquiry-form" id="inquiry-form" onsubmit="submitInquiry(event)" novalidate>
+            <div class="form-row-2">
+              <div class="field-group">
+                <label class="field-label" for="client-name">Your Name</label>
+                <input class="field-input" type="text" id="client-name" name="clientName" placeholder="e.g. Elena Vance" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="client-brand">Brand or Organization</label>
+                <input class="field-input" type="text" id="client-brand" name="clientBrand" placeholder="e.g. Atelier Lumiere" required>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="field-group">
+                <label class="field-label" for="client-email">Work Email</label>
+                <input class="field-input" type="email" id="client-email" name="clientEmail" placeholder="name@brand.example.com" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="client-sector">Brand Sector</label>
+                <select class="field-select" id="client-sector" name="clientSector" onchange="updateBlueprint()">
+                  <option value="Fashion &amp; Couture">Fashion &amp; Couture</option>
+                  <option value="Beauty &amp; Fragrance">Beauty &amp; Fragrance</option>
+                  <option value="Hospitality &amp; Travel">Hospitality &amp; Travel</option>
+                  <option value="Fine Jewelry &amp; Horology">Fine Jewelry &amp; Horology</option>
+                  <option value="Lifestyle &amp; Culture">Lifestyle &amp; Culture</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="field-group">
+                <label class="field-label" for="client-service">Primary Service Pillar</label>
+                <select class="field-select" id="client-service" name="clientService" onchange="updateBlueprint()">
+                  <option value="Content">Content &mdash; Editorial Production</option>
+                  <option value="Creators">Creators &mdash; Talent &amp; Advocacy</option>
+                  <option value="Connections">Connections &mdash; Partnerships &amp; Salons</option>
+                  <option value="Full-Service Retainer">Integrated Full-House Retainer</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="client-timeline">Target Window</label>
+                <select class="field-select" id="client-timeline" name="clientTimeline" onchange="updateBlueprint()">
+                  <option value="Immediate (4–6 Weeks)">Immediate Launch (4–6 Weeks)</option>
+                  <option value="Next Quarter">Next Quarter Campaign</option>
+                  <option value="6-Month Retainer">6-Month Seasonal Retainer</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="client-brief">Campaign Vision &amp; Notes</label>
+              <textarea class="field-textarea" id="client-brief" name="clientBrief" placeholder="Outline your campaign goals, launch markets, or creative direction..."></textarea>
+            </div>
+
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+            <div class="controls-row">
+              <button type="submit" class="btn btn-primary">Request Private Consultation</button>
+              <button type="button" class="btn btn-secondary" onclick="resetInquiryForm()">Clear Brief</button>
+            </div>
+          </form>
+
+          <aside class="blueprint-aside" aria-live="polite">
+            <div>
+              <p class="label">Live Engagement Blueprint</p>
+              <h3 class="pillar-btn-title" id="bp-headline">Content &mdash; Editorial Production</h3>
+            </div>
+            <div class="blueprint-line">
+              <p class="label">Recommended Studio Lead</p>
+              <p id="bp-lead">Executive Creative Director &amp; Senior Art Producer</p>
+            </div>
+            <div class="blueprint-line">
+              <p class="label">Core Deliverables</p>
+              <p id="bp-deliverables">Campaign mood architecture, hero motion film, lookbook stills, and editorial social cutdowns.</p>
+            </div>
+            <div class="blueprint-line">
+              <p class="label">Cadence &amp; Sector Focus</p>
+              <p id="bp-cadence">Immediate Launch (4–6 Weeks) tailored for Fashion &amp; Couture.</p>
+            </div>
+            <div class="blueprint-line">
+              <p class="label">Direct Studio Desk</p>
+              <p>concierge@shrinimedia.example.com &middot; New York &middot; London &middot; Dubai</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="kicker">Shrini Media</p>
+      <p class="section-subline" style="margin: 0;">Where Creativity Meets Influence &middot; Content &middot; Creators &middot; Connections</p>
+      <hr class="gold-rule" style="max-width: 240px;">
+      <p class="label">Brand Identity &amp; Luxury Agency Portfolio &mdash; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const PILLARS_DATA = {
+      premium: {
+        kicker: `Pillar 01 — Aesthetic & Craft Standard`,
+        title: `Premium`,
+        desc: `Luxury resides in restraint, tactile detail, and visual authority. We reject noisy promotional clutter in favor of editorial compositions, nocturnal depth, and polished metallic accents that elevate brand equity from the first glance.`,
+        practice: `Bespoke art direction, cinema-grade pacing, and museum-level brand stewardship.`,
+        cue: `High-contrast serif display over obsidian gradients and champagne hairlines.`
+      },
+      modern: {
+        kicker: `Pillar 02 — Cultural Velocity`,
+        title: `Modern`,
+        desc: `Heritage only resonates when spoken in a contemporary vernacular. We pair timeless editorial typography with agile, platform-native storytelling built for how discerning audiences discover luxury today.`,
+        practice: `Real-time cultural fluency, vertical cinema framing, and forward-looking creator formats.`,
+        cue: `Minimalist geometric structure, fluid responsive rhythm, and intentional negative space.`
+      },
+      professional: {
+        kicker: `Pillar 03 — Strategic Rigor`,
+        title: `Professional`,
+        desc: `Creative brilliance requires executive discipline behind the scenes. Every brief is backed by clear milestones, vetted talent contracts, brand-safety governance, and transparent performance reporting.`,
+        practice: `Structured production timelines, airtight talent stewardship, and measurable ROI.`,
+        cue: `Architectural grid alignment, crisp uppercase indexing, and disciplined hierarchy.`
+      },
+      approachable: {
+        kicker: `Pillar 04 — Human Warmth`,
+        title: `Approachable`,
+        desc: `True influence is built on trust, not distance. We cultivate an inviting, collaborative studio atmosphere where brand founders and creators feel genuinely heard, supported, and inspired.`,
+        practice: `White-glove hospitality, candid creative dialogue, and long-term partnership care.`,
+        cue: `Warm ivory ink, inviting editorial pacing, and gracious conversational tone.`
+      }
+    };
+
+    const SERVICES_DATA = {
+      content: {
+        kicker: `Discipline 01 — Editorial Production`,
+        title: `Content`,
+        desc: `End-to-end creative direction and luxury content production built for modern digital flagships. From architectural product stills to nocturnal motion campaigns, every frame is calibrated to look unmistakable without explanation.`,
+        deliverables: [
+          [`Campaign Art Direction & Mood Architecture`, `Direction`],
+          [`Editorial Motion Reels & Launch Films`, `Production`],
+          [`Luxury Still Life & Lookbook Photography`, `Imagery`],
+          [`Social Flagship Visual Systems`, `Digital`]
+        ],
+        steps: [
+          [`01 — Narrative Framing`, `Translate commercial objectives into a singular visual thesis and shot hierarchy.`],
+          [`02 — Studio Craft`, `Lighting, styling, and tactile set design executed with couture-level precision.`],
+          [`03 — Multi-Format Cutdown`, `Master deliverables tailored across editorial print, cinema screens, and social channels.`]
+        ]
+      },
+      creators: {
+        kicker: `Discipline 02 — Talent & Advocacy`,
+        title: `Creators`,
+        desc: `Strategic creator curation that prioritizes cultural alignment over vanity reach. We pair prestige houses with discerning voices, managing every touchpoint from bespoke seeding to multi-season ambassador retainers.`,
+        deliverables: [
+          [`Tastemaker Scouting & Audience Vetting`, `Curation`],
+          [`Ambassador Retainers & Capsule Collaborations`, `Talent`],
+          [`White-Glove Briefing & Creative Alignment`, `Stewardship`],
+          [`Sentiment & Conversion Attribution Reporting`, `Analytics`]
+        ],
+        steps: [
+          [`01 — Cultural Mapping`, `Identify creators whose aesthetic and audience mirror the brand's true aspiration.`],
+          [`02 — Curated Onboarding`, `Deliver bespoke product immersion and clear creative guardrails without stiffness.`],
+          [`03 — Sustained Advocacy`, `Transform one-off placements into authentic, recurring brand storytelling.`]
+        ]
+      },
+      connections: {
+        kicker: `Discipline 03 — Partnerships & Salons`,
+        title: `Connections`,
+        desc: `High-touch brand matchmaking, intimate salon gatherings, and cross-category cultural collaborations. We open doors between luxury houses, tastemakers, and press through memorable real-world and digital moments.`,
+        deliverables: [
+          [`Private Salon Dinners & Launch Previews`, `Experiential`],
+          [`Cross-Brand Luxury Co-Labs`, `Partnerships`],
+          [`Press & VIP Tastemaker Seeding`, `Relations`],
+          [`Cultural Calendar & Fashion Week Presence`, `Amplification`]
+        ],
+        steps: [
+          [`01 — Guest & Partner Architecture`, `Curate an intentional room where every introduction creates mutual brand value.`],
+          [`02 — Atmospheric Staging`, `Design sensory environments—lighting, tablescapes, and keepsakes—that invite organic capture.`],
+          [`03 — Post-Salon Momentum`, `Extend the evening into sustained editorial coverage and collaborative follow-ons.`]
+        ]
+      }
+    };
+
+    const WORK_CASES = [
+      {
+        id: `aurelia`,
+        client: `Maison Aurelia`,
+        category: `Content`,
+        subtitle: `Autumn Nocturne Campaign`,
+        summary: `Directed a 90-second nocturnal launch film and 24-frame lookbook series for Maison Aurelia's evening capsule, pairing chiaroscuro studio lighting with burnished gold wardrobe detailing.`,
+        deliverables: [
+          [`Hero 4K Launch Film & 12 Social Cutdowns`, `Motion`],
+          [`24-Plate Editorial Lookbook`, `Photography`],
+          [`Digital Flagship Art Direction`, `Identity`]
+        ],
+        m1Label: `Editorial Impressions`,
+        m1Val: `4.8M`,
+        m2Label: `Watch Completion`,
+        m2Val: `74%`,
+        motif: `arch`
+      },
+      {
+        id: `vespera`,
+        client: `Vespera Parfums`,
+        category: `Creators`,
+        subtitle: `Global Fragrance Atelier`,
+        summary: `Curated 18 international beauty and design voices for Vespera's extrait launch, orchestrating an unscripted scent-journaling campaign anchored by tactile gold-embossed discovery coffrets.`,
+        deliverables: [
+          [`18-Creator Tiered Ambassador Roster`, `Talent`],
+          [`Bespoke Gold Coffret Seeding Experience`, `Curation`],
+          [`Creator Licensing & Paid Whitelisting`, `Media`]
+        ],
+        m1Label: `Earned Media Value`,
+        m1Val: `$1.4M`,
+        m2Label: `Creator Participation`,
+        m2Val: `100%`,
+        motif: `orbit`
+      },
+      {
+        id: `solenne`,
+        client: `Hotel Solenne`,
+        category: `Connections`,
+        subtitle: `Private Midnight Salon`,
+        summary: `Produced an invitation-only candlelit salon during fashion week for 45 editors, collectors, and hospitality tastemakers, turning a boutique courtyard suite into a cultural talking point.`,
+        deliverables: [
+          [`VIP Guest Curation & Concierge Invitations`, `Relations`],
+          [`Tablescape & Metallic Foil Menu Design`, `Experiential`],
+          [`On-Site Portrait & Editorial Press Wire`, `Coverage`]
+        ],
+        m1Label: `Press Placements`,
+        m1Val: `32`,
+        m2Label: `VIP Attendance`,
+        m2Val: `96%`,
+        motif: `frame`
+      },
+      {
+        id: `chronos`,
+        client: `Chronos Atelier`,
+        category: `Content`,
+        subtitle: `Calibre IV Macro Series`,
+        summary: `Executed macro horology cinematography and architectural still-life compositions highlighting hand-chamfered brass bridges against deep obsidian velvet.`,
+        deliverables: [
+          [`Macro Movement Study Series`, `Film`],
+          [`Collector Monograph Plates`, `Print`],
+          [`Boutique Screen Installations`, `Retail`]
+        ],
+        m1Label: `Boutique Inquiries`,
+        m1Val: `+62%`,
+        m2Label: `Save Rate`,
+        m2Val: `8.9%`,
+        motif: `orbit`
+      },
+      {
+        id: `kora`,
+        client: `Kora Botanica`,
+        category: `Creators`,
+        subtitle: `Ritual Skincare Collective`,
+        summary: `Built a 6-month founder-led creator collective pairing estheticians and editorial aesthetes with Kora's nocturnal serum line, emphasizing candid warmth and clinical credibility.`,
+        deliverables: [
+          [`6-Month Creator Advisory Board`, `Retainer`],
+          [`Co-Created Routine Short Films`, `Storytelling`],
+          [`Retail Partner Social Toolkit`, `Commerce`]
+        ],
+        m1Label: `Attributed Revenue`,
+        m1Val: `3.6x`,
+        m2Label: `Repeat Creator Rate`,
+        m2Val: `88%`,
+        motif: `arch`
+      },
+      {
+        id: `verre`,
+        client: `Verre & Velvet`,
+        category: `Connections`,
+        subtitle: `Milan Design Week Capsule`,
+        summary: `Brokered a cross-disciplinary glassware and couture collaboration between two heritage ateliers, unveiling the numbered edition at a private gallery preview.`,
+        deliverables: [
+          [`Dual-House Partnership Structuring`, `Strategy`],
+          [`Gallery Preview Curation`, `Salon`],
+          [`Collector Waitlist Launch Flow`, `Digital`]
+        ],
+        m1Label: `Edition Sell-Through`,
+        m1Val: `72 hrs`,
+        m2Label: `Partner Inquiries`,
+        m2Val: `140+`,
+        motif: `frame`
+      }
+    ];
+
+    let activeLogoVariant = `monogram`;
+    let isGoldLogoSurface = false;
+    let activeWorkFilter = `all`;
+    let activeWorkId = `aurelia`;
+
+    function selectPillar(key) {
+      const data = PILLARS_DATA[key];
+      if (!data) return;
+
+      const keys = Object.keys(PILLARS_DATA);
+      keys.forEach((k) => {
+        const btn = document.getElementById(`pillar-tab-${k}`);
+        if (btn) btn.setAttribute(`aria-selected`, k === key ? `true` : `false`);
+      });
+
+      const kickerEl = document.getElementById(`pillar-detail-kicker`);
+      const titleEl = document.getElementById(`pillar-detail-title`);
+      const descEl = document.getElementById(`pillar-detail-desc`);
+      const practiceEl = document.getElementById(`pillar-detail-practice`);
+      const cueEl = document.getElementById(`pillar-detail-cue`);
+
+      if (kickerEl) kickerEl.textContent = data.kicker;
+      if (titleEl) titleEl.textContent = data.title;
+      if (descEl) descEl.textContent = data.desc;
+      if (practiceEl) practiceEl.textContent = data.practice;
+      if (cueEl) cueEl.textContent = data.cue;
+    }
+
+    function selectService(key) {
+      const data = SERVICES_DATA[key];
+      if (!data) return;
+
+      [`content`, `creators`, `connections`].forEach((k) => {
+        const tab = document.getElementById(`svc-tab-${k}`);
+        if (tab) {
+          const active = k === key;
+          tab.setAttribute(`aria-selected`, active ? `true` : `false`);
+          tab.classList.toggle(`is-active`, active);
+        }
+      });
+
+      const kickerEl = document.getElementById(`svc-kicker`);
+      const titleEl = document.getElementById(`svc-title`);
+      const descEl = document.getElementById(`svc-desc`);
+      const delivEl = document.getElementById(`svc-deliverables`);
+      const stepsEl = document.getElementById(`svc-workflow-steps`);
+
+      if (kickerEl) kickerEl.textContent = data.kicker;
+      if (titleEl) titleEl.textContent = data.title;
+      if (descEl) descEl.textContent = data.desc;
+
+      if (delivEl) {
+        delivEl.innerHTML = data.deliverables.map((item) => {
+          return `<li><span>${item[0]}</span><span>${item[1]}</span></li>`;
+        }).join(``);
+      }
+
+      if (stepsEl) {
+        stepsEl.innerHTML = data.steps.map((st) => {
+          return `<div class="workflow-step"><strong>${st[0]}</strong><p>${st[1]}</p></div>`;
+        }).join(``);
+      }
+    }
+
+    function renderLogoStage() {
+      const container = document.getElementById(`logo-svg-container`);
+      const caption = document.getElementById(`logo-caption-note`);
+      const stage = document.getElementById(`logo-stage`);
+      if (!container || !caption || !stage) return;
+
+      stage.classList.toggle(`is-gold-surface`, isGoldLogoSurface);
+      const strokeRef = isGoldLogoSurface ? `url(#stage-dark-grad)` : `url(#stage-gold-grad)`;
+      const textFillClass = isGoldLogoSurface ? `stop-obsidian` : `stop-gold-light`;
+      const groundLabel = isGoldLogoSurface ? `Obsidian Ink on Burnished Gold` : `Metallic Gold on Obsidian`;
+
+      const defs = `
+        <defs>
+          <linearGradient id="stage-gold-grad" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" class="stop-gold-dark" />
+            <stop offset="40%" class="stop-gold-light" />
+            <stop offset="72%" class="stop-gold-mid" />
+            <stop offset="100%" class="stop-gold-dark" />
+          </linearGradient>
+          <linearGradient id="stage-dark-grad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" class="stop-obsidian" />
+            <stop offset="100%" class="stop-obsidian" />
+          </linearGradient>
+        </defs>
+      `;
+
+      if (activeLogoVariant === `monogram`) {
+        container.innerHTML = `
+          <svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shrini Media Primary Monogram">
+            ${defs}
+            <rect x="8" y="8" width="104" height="104" stroke="${strokeRef}" stroke-width="1.5" />
+            <rect x="16" y="16" width="88" height="88" stroke="${strokeRef}" stroke-width="0.75" opacity="0.6" />
+            <path d="M44 38C44 30 55 27 61 32C67 37 40 50 43 66C46 79 63 82 75 72" stroke="${strokeRef}" stroke-width="2.6" />
+            <path d="M36 82V36L60 62L84 36V82" stroke="${strokeRef}" stroke-width="1.8" />
+          </svg>
+        `;
+        caption.textContent = `Primary Monogram — ${groundLabel}`;
+      } else if (activeLogoVariant === `seal`) {
+        container.innerHTML = `
+          <svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shrini Media Crest Seal">
+            ${defs}
+            <circle cx="60" cy="60" r="52" stroke="${strokeRef}" stroke-width="1.5" />
+            <circle cx="60" cy="60" r="44" stroke="${strokeRef}" stroke-width="0.75" stroke-dasharray="3 4" />
+            <path d="M46 42C46 35 55 32 61 36C67 40 42 52 45 66C48 77 63 79 73 70" stroke="${strokeRef}" stroke-width="2.4" />
+            <path d="M40 78V40L60 61L80 40V78" stroke="${strokeRef}" stroke-width="1.5" />
+          </svg>
+        `;
+        caption.textContent = `Circular Crest Seal — ${groundLabel}`;
+      } else {
+        const wordColor = isGoldLogoSurface ? `var(--on-primary)` : `var(--on-surface)`;
+        const subColor = isGoldLogoSurface ? `var(--on-primary)` : `var(--tertiary)`;
+        container.innerHTML = `
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-headline); font-size: 2.35rem; letter-spacing: 0.16em; text-transform: uppercase; color: ${wordColor}; line-height: 1.05;">
+              Shrini Media
+            </div>
+            <div style="height: 1px; background: ${wordColor}; opacity: 0.45; margin: var(--space-sm) auto; width: 72%;"></div>
+            <div style="font-family: var(--font-label); font-size: var(--label-size); letter-spacing: 0.3em; text-transform: uppercase; color: ${subColor};">
+              Where Creativity Meets Influence
+            </div>
+          </div>
+        `;
+        caption.textContent = `Editorial Wordmark — ${groundLabel}`;
+      }
+    }
+
+    function setLogoVariant(variant) {
+      activeLogoVariant = variant;
+      [`monogram`, `seal`, `wordmark`].forEach((v) => {
+        const btn = document.getElementById(`logo-mode-${v}`);
+        if (btn) btn.classList.toggle(`is-active`, v === variant);
+      });
+      renderLogoStage();
+    }
+
+    function toggleLogoSurface() {
+      isGoldLogoSurface = !isGoldLogoSurface;
+      const btn = document.getElementById(`logo-surface-toggle`);
+      if (btn) btn.classList.toggle(`is-active`, isGoldLogoSurface);
+      renderLogoStage();
+    }
+
+    function copySwatch(name, hex, role) {
+      const feedback = document.getElementById(`swatch-copy-feedback`);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).catch(() => {});
+      }
+      if (feedback) {
+        feedback.textContent = `${name} (${hex}) selected — ${role}`;
+      }
+    }
+
+    function buildMotifSvg(motif) {
+      const defs = `
+        <defs>
+          <linearGradient id="dossier-gold" x1="0" y1="0" x2="180" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" class="stop-gold-dark" />
+            <stop offset="45%" class="stop-gold-light" />
+            <stop offset="100%" class="stop-gold-dark" />
+          </linearGradient>
+        </defs>
+      `;
+      if (motif === `arch`) {
+        return `
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            ${defs}
+            <rect x="14" y="10" width="152" height="100" stroke="url(#dossier-gold)" stroke-width="1" opacity="0.5" />
+            <path d="M54 110V54C54 34 70 20 90 20C110 20 126 34 126 54V110" stroke="url(#dossier-gold)" stroke-width="1.6" />
+            <circle cx="90" cy="56" r="14" stroke="url(#dossier-gold)" stroke-width="1.2" />
+            <line x1="28" y1="90" x2="152" y2="90" stroke="url(#dossier-gold)" stroke-width="0.8" opacity="0.7" />
+          </svg>
+        `;
+      }
+      if (motif === `orbit`) {
+        return `
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            ${defs}
+            <circle cx="90" cy="60" r="44" stroke="url(#dossier-gold)" stroke-width="1.4" />
+            <ellipse cx="90" cy="60" rx="70" ry="22" transform="rotate(-14 90 60)" stroke="url(#dossier-gold)" stroke-width="1" opacity="0.7" />
+            <circle cx="90" cy="60" r="8" stroke="url(#dossier-gold)" stroke-width="1.5" />
+          </svg>
+        `;
+      }
+      return `
+        <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          ${defs}
+          <rect x="20" y="14" width="140" height="92" stroke="url(#dossier-gold)" stroke-width="1.4" />
+          <rect x="32" y="24" width="116" height="72" stroke="url(#dossier-gold)" stroke-width="0.8" opacity="0.65" />
+          <line x1="20" y1="60" x2="160" y2="60" stroke="url(#dossier-gold)" stroke-width="0.8" opacity="0.5" />
+          <line x1="90" y1="14" x2="90" y2="106" stroke="url(#dossier-gold)" stroke-width="0.8" opacity="0.5" />
+        </svg>
+      `;
+    }
+
+    function renderWorkGrid() {
+      const grid = document.getElementById(`work-grid`);
+      if (!grid) return;
+
+      const filtered = activeWorkFilter === `all`
+        ? WORK_CASES
+        : WORK_CASES.filter((c) => c.category === activeWorkFilter);
+
+      if (!filtered.some((c) => c.id === activeWorkId) && filtered.length > 0) {
+        activeWorkId = filtered[0].id;
+      }
+
+      grid.innerHTML = filtered.map((item) => {
+        const selected = item.id === activeWorkId;
+        return `
+          <div class="card-wrapper">
+            <button type="button" class="work-card" aria-selected="${selected ? `true` : `false`}" onclick="selectWorkCase('${item.id}')">
+              <div>
+                <p class="label">${item.category}</p>
+                <h3 class="work-card-title">${item.client}</h3>
+              </div>
+              <p class="work-card-meta">${item.subtitle}</p>
+            </button>
+          </div>
+        `;
+      }).join(``);
+
+      renderDossier();
+    }
+
+    function renderDossier() {
+      const item = WORK_CASES.find((c) => c.id === activeWorkId) || WORK_CASES[0];
+      if (!item) return;
+
+      const visualEl = document.getElementById(`dossier-visual`);
+      const catEl = document.getElementById(`dossier-category`);
+      const titleEl = document.getElementById(`dossier-title`);
+      const sumEl = document.getElementById(`dossier-summary`);
+      const delivEl = document.getElementById(`dossier-deliverables`);
+      const m1Label = document.getElementById(`dossier-m1-label`);
+      const m1Val = document.getElementById(`dossier-m1-val`);
+      const m2Label = document.getElementById(`dossier-m2-label`);
+      const m2Val = document.getElementById(`dossier-m2-val`);
+
+      if (visualEl) visualEl.innerHTML = buildMotifSvg(item.motif);
+      if (catEl) catEl.textContent = `${item.category} · ${item.subtitle}`;
+      if (titleEl) titleEl.textContent = item.client;
+      if (sumEl) sumEl.textContent = item.summary;
+      if (delivEl) {
+        delivEl.innerHTML = item.deliverables.map((d) => {
+          return `<li><span>${d[0]}</span><span>${d[1]}</span></li>`;
+        }).join(``);
+      }
+      if (m1Label) m1Label.textContent = item.m1Label;
+      if (m1Val) m1Val.textContent = item.m1Val;
+      if (m2Label) m2Label.textContent = item.m2Label;
+      if (m2Val) m2Val.textContent = item.m2Val;
+    }
+
+    function filterWork(category) {
+      activeWorkFilter = category;
+      const map = {
+        all: `filter-all`,
+        Content: `filter-content`,
+        Creators: `filter-creators`,
+        Connections: `filter-connections`
+      };
+      Object.keys(map).forEach((key) => {
+        const btn = document.getElementById(map[key]);
+        if (btn) btn.classList.toggle(`is-active`, key === category);
+      });
+      renderWorkGrid();
+    }
+
+    function selectWorkCase(id) {
+      activeWorkId = id;
+      renderWorkGrid();
+    }
+
+    function updateBlueprint() {
+      const svcEl = document.getElementById(`client-service`);
+      const secEl = document.getElementById(`client-sector`);
+      const timeEl = document.getElementById(`client-timeline`);
+      const headlineEl = document.getElementById(`bp-headline`);
+      const leadEl = document.getElementById(`bp-lead`);
+      const delivEl = document.getElementById(`bp-deliverables`);
+      const cadEl = document.getElementById(`bp-cadence`);
+
+      if (!svcEl || !secEl || !timeEl) return;
+      const svc = svcEl.value;
+      const sec = secEl.value;
+      const time = timeEl.value;
+
+      const blueprints = {
+        Content: {
+          title: `Content — Editorial Production`,
+          lead: `Executive Creative Director & Senior Art Producer`,
+          deliv: `Campaign mood architecture, hero motion film, lookbook stills, and editorial social cutdowns.`
+        },
+        Creators: {
+          title: `Creators — Talent & Advocacy`,
+          lead: `Head of Talent Relations & Cultural Strategy`,
+          deliv: `Vetted creator roster, bespoke seeding architecture, contract stewardship, and attribution reporting.`
+        },
+        Connections: {
+          title: `Connections — Partnerships & Salons`,
+          lead: `Managing Partner & Experiential Director`,
+          deliv: `Private salon staging, VIP guest curation, cross-house collaborations, and press seeding.`
+        },
+        'Full-Service Retainer': {
+          title: `Integrated Full-House Retainer`,
+          lead: `Dedicated Agency Partner & Cross-Disciplinary Pod`,
+          deliv: `Unified Content production, ongoing Creator advocacy, and seasonal Connections activations.`
+        }
+      };
+
+      const chosen = blueprints[svc] || blueprints.Content;
+      if (headlineEl) headlineEl.textContent = chosen.title;
+      if (leadEl) leadEl.textContent = chosen.lead;
+      if (delivEl) delivEl.textContent = chosen.deliv;
+      if (cadEl) cadEl.textContent = `${time} tailored for ${sec}.`;
+    }
+
+    function submitInquiry(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById(`client-name`);
+      const brandInput = document.getElementById(`client-brand`);
+      const emailInput = document.getElementById(`client-email`);
+      const svcInput = document.getElementById(`client-service`);
+      const statusEl = document.getElementById(`form-status`);
+
+      if (!nameInput || !brandInput || !emailInput || !svcInput || !statusEl) return;
+
+      const name = nameInput.value.trim();
+      const brand = brandInput.value.trim();
+      const email = emailInput.value.trim();
+      const service = svcInput.value;
+
+      statusEl.className = `form-status is-visible`;
+
+      if (!name || !brand || !email || !email.includes(`@`)) {
+        statusEl.classList.add(`is-error`);
+        statusEl.innerHTML = `<strong>Incomplete Brief:</strong> Please provide your name, brand or organization, and a valid work email address so our desk can respond.`;
+        return;
+      }
+
+      statusEl.classList.add(`is-success`);
+      statusEl.innerHTML = `<strong>Consultation Dossier Prepared:</strong> Thank you, ${name}. Your ${service} inquiry for ${brand} has been logged in-session for review. Our client desk responds within one business day.`;
+    }
+
+    function resetInquiryForm() {
+      const form = document.getElementById(`inquiry-form`);
+      const statusEl = document.getElementById(`form-status`);
+      if (form) form.reset();
+      if (statusEl) {
+        statusEl.className = `form-status`;
+        statusEl.textContent = ``;
+      }
+      updateBlueprint();
+    }
+
+    function initScrollReveals() {
+      const items = document.querySelectorAll(`.reveal`);
+      if (!items.length) return;
+
+      if (!(`IntersectionObserver` in window)) {
+        items.forEach((el) => el.classList.add(`is-revealed`));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(`is-revealed`);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      items.forEach((el) => observer.observe(el));
+    }
+
+    document.addEventListener(`DOMContentLoaded`, () => {
+      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+        window.lucide.createIcons();
+      }
+      renderWorkGrid();
+      updateBlueprint();
+      initScrollReveals();
+    });
+  </script>
+</body>
+</html>
